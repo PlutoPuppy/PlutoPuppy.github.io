@@ -692,3 +692,238 @@ small {
     background-position-x: 30%;
   }
 }
+
+/* =========================================================================
+   CYBER MINT + BLUE  —  dark theme
+   Palette: bg #0a0f14 | surface #121a22 | mint #2ee6c8 | blue #38bdf8
+   This block is appended last so it overrides the original light/green rules.
+   ========================================================================= */
+
+:root {
+  --bg: #0a0f14;
+  --surface: #121a22;
+  --surface-alt: #0e151c;
+  --mint: #2ee6c8;
+  --blue: #38bdf8;
+  --text: #e2f1ee;
+  --muted: #93a7ad;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent-grad: linear-gradient(135deg, #2ee6c8, #38bdf8);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ---- Backgrounds ---- */
+main {
+  background: var(--bg);
+}
+
+nav {
+  background: var(--surface);
+}
+
+/* ---- Side navigation ---- */
+ul.side-nav {
+  background-color: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+ul.side-nav.fixed li.logo {
+  background-color: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+
+/* keep nav labels readable on dark */
+ul.side-nav.fixed.table-of-contents li:not(.logo) a span,
+ul#slide-out li:not(.logo) a span {
+  color: var(--text) !important;
+}
+
+ul.side-nav.fixed a {
+  color: var(--mint);
+}
+
+ul.table-of-contents li:not(.logo) a.active,
+ul.table-of-contents li:not(.logo) a:hover {
+  background-color: rgba(46, 230, 200, 0.08);
+  border-left: 3px solid var(--mint);
+}
+
+.profile-pic {
+  border: 6px solid rgba(46, 230, 200, 0.5);
+}
+
+/* mobile top bar */
+nav a.button-collapse,
+nav a.button-collapse i {
+  color: var(--mint);
+}
+
+.name-title a.teal-text {
+  color: var(--mint) !important;
+}
+
+.name-title span.black-text {
+  color: var(--text) !important;
+}
+
+@media (max-width: 992px) {
+  nav {
+    background: var(--surface);
+  }
+}
+
+/* ---- Accent colors (override Materialize + old green) ---- */
+a {
+  color: var(--blue);
+}
+
+.teal-text {
+  color: var(--mint) !important;
+}
+
+.brown-text,
+.brown-text.text-darken-2 {
+  color: var(--blue) !important;
+}
+
+.grey-text {
+  color: var(--muted) !important;
+}
+
+a.hoverline:hover {
+  border-bottom: 3px solid var(--mint) !important;
+}
+
+.card li a {
+  color: var(--blue);
+  border-bottom: 2px solid var(--mint);
+}
+
+.card li a:hover {
+  color: var(--mint);
+}
+
+/* ---- Section title bars ---- */
+h3.page-title.teal {
+  background: var(--accent-grad) !important;
+}
+
+h3.page-title.white-text {
+  color: #06231f !important;
+  font-weight: 600;
+}
+
+/* ---- Cards ---- */
+.card {
+  background-color: var(--surface);
+  color: var(--text);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.card .card-content {
+  color: var(--text);
+}
+
+.card .card-reveal {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+.card ul li li {
+  color: var(--muted);
+}
+
+.card-action span,
+#experience .card-action span {
+  color: var(--muted);
+}
+
+#experience .card-action {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+#experience .card-content .row {
+  border-bottom: 1px solid var(--border);
+}
+
+#skills h4 {
+  border-bottom: 1px solid var(--border);
+}
+
+/* skill / education labels that were dark text */
+.card .card-content h4,
+.card b,
+.card p {
+  color: var(--text);
+}
+
+/* ---- Intro / hero ---- */
+#intro.section {
+  background: radial-gradient(circle at 30% 20%, #12202b 0%, #0a0f14 70%);
+}
+
+#intro.section .teal {
+  background-color: transparent !important;
+  color: var(--mint);
+}
+
+.typing {
+  color: var(--mint) !important;
+}
+
+#intro.section .underline {
+  border-bottom: 5px solid var(--mint);
+}
+
+/* ---- Hero buttons ---- */
+.readme {
+  background: var(--accent-grad);
+  color: #06231f;
+  border: 2px solid transparent;
+}
+
+.readme:hover {
+  filter: brightness(1.1);
+}
+
+.contactme {
+  color: var(--mint);
+  border: 2px solid var(--mint);
+}
+
+.contactme:hover {
+  color: #06231f;
+  background: var(--mint);
+}
+
+/* ---- Social icons on hero ---- */
+.github {
+  color: var(--text);
+}
+
+.github:hover {
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+/* ---- Floating action buttons (projects + contact) ---- */
+.card-action .btn-floating.blue-grey,
+#contact .btn-floating.blue-grey {
+  background: var(--accent-grad) !important;
+  color: #06231f !important;
+}
+
+#contact a.hoverline {
+  color: var(--blue);
+}
+
+/* ---- Text selection ---- */
+::selection {
+  background: var(--mint);
+  color: #06231f;
+}
