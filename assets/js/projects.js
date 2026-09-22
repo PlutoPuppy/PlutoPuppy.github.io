@@ -1,6 +1,7 @@
 // Array order determines which projects appear first.
 const projects = [
   {
+    id: "fridgevision",
     title: "FridgeVision",
     description: "Detects food in fridge photos and suggests recipes using machine learning.",
     repository: "https://github.com/PlutoPuppy/FridgeVision",
@@ -51,6 +52,7 @@ function renderProjects(count) {
   nextProjects.forEach(function (project) {
     const column = document.createElement("div");
     column.className = "col s12 m6 l4";
+    if (project.id) column.id = project.id;
     // These templates contain only the static project data defined above.
     column.innerHTML = `
       <div class="card medium">

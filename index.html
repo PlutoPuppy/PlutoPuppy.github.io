@@ -467,6 +467,41 @@
       </div>
     </section>
 
+    <section id="terminal" class="section scrollspy">
+      <h3 class="page-title white-text teal">Interactive Terminal</h3>
+      <div class="container">
+        <details class="portfolio-terminal">
+          <summary>Try my terminal <span>— explore with a few commands</span></summary>
+          <div class="terminal-output" id="terminal-output" role="log" aria-live="polite"
+            aria-label="Terminal output" tabindex="0">
+            <p>Welcome to Stephanie's portfolio. Type help to get started.</p>
+          </div>
+          <div class="terminal-controls">
+            <form id="terminal-form" autocomplete="off">
+              <label for="terminal-input">visitor@stephanie:~$</label>
+              <div class="terminal-entry">
+                <input id="terminal-input" type="text" placeholder="Type help…" spellcheck="false"
+                  autocapitalize="off" aria-describedby="terminal-hint">
+                <button type="submit">Run</button>
+              </div>
+            </form>
+            <aside class="terminal-guide" aria-label="Example commands">
+              <p id="terminal-hint">Type a command and press Enter, or click an example to run it.</p>
+              <ul>
+                <li><button type="button" data-command="help">help</button><span>Show commands</span></li>
+                <li><button type="button" data-command="whoami">whoami</button><span>Meet Stephanie</span></li>
+                <li><button type="button" data-command="projects">projects</button><span>List all four projects</span></li>
+                <li><button type="button" data-command="open fridgevision">open fridgevision</button><span>Jump to the project</span></li>
+                <li><button type="button" data-command="skills">skills</button><span>Explore technical skills</span></li>
+                <li><button type="button" data-command="cat resume">cat resume</button><span>Open my résumé</span></li>
+                <li><button type="button" data-command="sudo hire-me">sudo hire-me</button><span>Let's talk!</span></li>
+              </ul>
+            </aside>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <!-- Fourth Section: Projects -->
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
@@ -723,6 +758,7 @@
   </main>
 
   <script src="assets/js/projects.js"></script>
+  <script src="assets/js/terminal.js"></script>
 
   <!-- typed.js -->
   <script src="assets/vendor/typed.js/typed.min.js"></script>
