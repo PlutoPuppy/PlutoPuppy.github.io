@@ -939,11 +939,11 @@ h3.page-title.white-text {
   border-radius: 8px;
   border: 1px solid var(--border);
 }
-.travel-note { font-size: 14px; margin-top: 12px !important; }
-.travel-map .leaflet-popup-content { color: #172b34; }
-.travel-map .leaflet-control-attribution a { color: #006b70; }
-button.travel-chip { cursor: pointer; font-family: inherit; }
-button.travel-chip:hover, button.travel-chip:focus-visible { background: #203943; outline: 2px solid var(--mint); }
+.travel-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 .travel-places {
   display: flex;
