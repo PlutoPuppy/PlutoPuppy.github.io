@@ -467,41 +467,6 @@
       </div>
     </section>
 
-    <section id="terminal" class="section scrollspy">
-      <h3 class="page-title white-text teal">Interactive Terminal</h3>
-      <div class="container">
-        <details class="portfolio-terminal">
-          <summary>Try my terminal <span>— explore with a few commands</span></summary>
-          <div class="terminal-output" id="terminal-output" role="log" aria-live="polite"
-            aria-label="Terminal output" tabindex="0">
-            <p>Welcome to Stephanie's portfolio. Type help to get started.</p>
-          </div>
-          <div class="terminal-controls">
-            <form id="terminal-form" autocomplete="off">
-              <label for="terminal-input">visitor@stephanie:~$</label>
-              <div class="terminal-entry">
-                <input id="terminal-input" type="text" placeholder="Type help…" spellcheck="false"
-                  autocapitalize="off" aria-describedby="terminal-hint">
-                <button type="submit">Run</button>
-              </div>
-            </form>
-            <aside class="terminal-guide" aria-label="Example commands">
-              <p id="terminal-hint">Type a command and press Enter, or click an example to run it.</p>
-              <ul>
-                <li><button type="button" data-command="help">help</button><span>Show commands</span></li>
-                <li><button type="button" data-command="whoami">whoami</button><span>Meet Stephanie</span></li>
-                <li><button type="button" data-command="projects">projects</button><span>List all four projects</span></li>
-                <li><button type="button" data-command="open fridgevision">open fridgevision</button><span>Jump to the project</span></li>
-                <li><button type="button" data-command="skills">skills</button><span>Explore technical skills</span></li>
-                <li><button type="button" data-command="cat resume">cat resume</button><span>Open my résumé</span></li>
-                <li><button type="button" data-command="sudo hire-me">sudo hire-me</button><span>Let's talk!</span></li>
-              </ul>
-            </aside>
-          </div>
-        </details>
-      </div>
-    </section>
-
     <!-- Fourth Section: Projects -->
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
@@ -756,6 +721,52 @@
       </div>
     </section>
   </main>
+
+  <div class="terminal-widget" id="terminal-widget">
+    <section class="portfolio-terminal" id="terminal-panel" role="dialog"
+      aria-labelledby="terminal-title" hidden>
+      <div class="terminal-header">
+        <h2 id="terminal-title">Stephanie's terminal</h2>
+        <button type="button" id="terminal-close" aria-label="Close terminal">×</button>
+      </div>
+          <div class="terminal-output" id="terminal-output" role="log" aria-live="polite"
+            aria-label="Terminal output" tabindex="0">
+            <p>Welcome to Stephanie's portfolio. Type help to get started.</p>
+          </div>
+          <div class="terminal-controls">
+            <form id="terminal-form" autocomplete="off">
+              <label for="terminal-input">visitor@stephanie:~$</label>
+              <div class="terminal-entry">
+                <input id="terminal-input" type="text" placeholder="Type help…" spellcheck="false"
+                  autocapitalize="off" aria-describedby="terminal-hint">
+                <button type="submit">Run</button>
+              </div>
+            </form>
+            <aside class="terminal-guide" aria-label="Example commands">
+              <p id="terminal-hint">Type a command and press Enter, or click an example to run it.</p>
+              <ul>
+                <li><button type="button" data-command="help">help</button><span>Show commands</span></li>
+                <li><button type="button" data-command="whoami">whoami</button><span>Meet Stephanie</span></li>
+                <li><button type="button" data-command="projects">projects</button><span>List all four projects</span></li>
+                <li><button type="button" data-command="open fridgevision">open fridgevision</button><span>Jump to the project</span></li>
+                <li><button type="button" data-command="skills">skills</button><span>Explore technical skills</span></li>
+                <li><button type="button" data-command="cat resume">cat resume</button><span>Open my résumé</span></li>
+                <li><button type="button" data-command="sudo hire-me">sudo hire-me</button><span>Let's talk!</span></li>
+              </ul>
+            </aside>
+          </div>
+    </section>
+    <button type="button" id="terminal-toggle" class="terminal-toggle"
+      aria-label="Open interactive terminal" aria-controls="terminal-panel" aria-expanded="false">
+      <svg class="terminal-robot" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+        <path d="M18 3h4v7h-4zM8 10h24v4h4v20H4V14h4zM0 18h4v10H0zM36 18h4v10h-4z"
+          fill="currentColor"/>
+        <g class="robot-eyes" fill="#101c24"><path d="M10 17h6v6h-6zM24 17h6v6h-6z"/></g>
+        <path d="m13 27 3 2-3 2m6 0h7" fill="none" stroke="#101c24" stroke-width="2"/>
+      </svg>
+      <span class="terminal-tooltip">Chat with my terminal</span>
+    </button>
+  </div>
 
   <script src="assets/js/projects.js"></script>
   <script src="assets/js/terminal.js"></script>

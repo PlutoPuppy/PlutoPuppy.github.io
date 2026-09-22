@@ -975,13 +975,6 @@ h3.page-title.white-text {
   overflow: hidden;
   font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
-.portfolio-terminal summary {
-  padding: 18px 22px;
-  cursor: pointer;
-  color: #8de4cf;
-  background: #192a34;
-}
-.portfolio-terminal summary span { color: #b7cbd5; }
 .terminal-output {
   height: 260px;
   overflow-y: auto;
@@ -1025,5 +1018,73 @@ h3.page-title.white-text {
 .terminal-guide li span { color: #b7cbd5; font-size: 12px; }
 @media (max-width: 700px) {
   .terminal-controls { grid-template-columns: minmax(0, 1fr); }
-  .portfolio-terminal summary span { display: block; }
+}
+
+.terminal-widget {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 1000;
+}
+.terminal-widget [hidden] { display: none !important; }
+.terminal-widget .portfolio-terminal {
+  position: absolute;
+  right: 0;
+  bottom: 80px;
+  width: min(580px, calc(100vw - 40px));
+  max-height: calc(100vh - 120px);
+  max-height: calc(100dvh - 120px);
+  overflow-y: auto;
+  box-shadow: 0 16px 60px #0008;
+}
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: #192a34;
+}
+.terminal-header h2 { margin: 0; color: #8de4cf; font: inherit; font-weight: 600; }
+.terminal-header button { font-size: 24px; line-height: 1; }
+.terminal-widget .terminal-output { height: 200px; }
+.terminal-widget .terminal-controls { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.terminal-widget .terminal-guide ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.terminal-widget .terminal-guide li { margin: 0; }
+.terminal-widget .terminal-guide li span { display: none; }
+.terminal-toggle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid #8de4cf;
+  border-radius: 20px;
+  color: #8de4cf;
+  background: #192a34;
+  box-shadow: 0 5px 20px #0005;
+  cursor: pointer;
+}
+.terminal-toggle:hover, .terminal-toggle:focus-visible { background: #304f5b; }
+.terminal-toggle:focus-visible { outline: 3px solid #8de4cf; outline-offset: 4px; }
+.terminal-tooltip {
+  position: absolute;
+  right: 76px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #192a34;
+  color: #e0edf3;
+  white-space: nowrap;
+  font: 13px/1.5 ui-monospace, monospace;
+  opacity: 0;
+  pointer-events: none;
+}
+.terminal-toggle:hover .terminal-tooltip,
+.terminal-toggle:focus-visible .terminal-tooltip { opacity: 1; }
+.robot-eyes { transform-origin: 20px 20px; animation: robot-blink 6s infinite; }
+@keyframes robot-blink { 0%, 92%, 96%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.1); } }
+@media (prefers-reduced-motion: reduce) { .robot-eyes { animation: none; } }
+@media (max-width: 600px) {
+  .terminal-widget { right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
+  .terminal-widget .portfolio-terminal { width: calc(100vw - 24px); bottom: 76px; }
+  .terminal-controls { padding: 14px; }
 }

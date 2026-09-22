@@ -2,6 +2,26 @@
   const form = document.getElementById("terminal-form");
   const input = document.getElementById("terminal-input");
   const output = document.getElementById("terminal-output");
+  const panel = document.getElementById("terminal-panel");
+  const toggle = document.getElementById("terminal-toggle");
+  const close = document.getElementById("terminal-close");
+
+  function setOpen(open) {
+    panel.hidden = !open;
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close interactive terminal" : "Open interactive terminal");
+    if (open) input.focus({ preventScroll: true });
+    else toggle.focus({ preventScroll: true });
+  }
+
+  toggle.addEventListener("click", function () { setOpen(panel.hidden); });
+  close.addEventListener("click", function () { setOpen(false); });
+  document.getElementById("terminal-widget").addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !panel.hidden) {
+      event.preventDefault();
+      setOpen(false);
+    }
+  });
   const commands = {
     help: "Available commands:\nhelp — Show commands\nwhoami — Meet Stephanie\nprojects — List all four projects\nopen fridgevision — Jump to FridgeVision\nskills — Technical skills\ncat resume — Open my résumé\nsudo hire-me — Let's talk!",
     whoami: "I'm Stephanie (Yixin) Zha, a Computer Engineering student at the University of Toronto. I enjoy problem-solving, machine learning, and compiler development, with professional experience in PyTorch and LLVM/MLIR.",
@@ -31,6 +51,7 @@
       }).join("\n"));
     } else if (command === "open fridgevision") {
       print("Opening FridgeVision…");
+      setOpen(false);
       window.location.hash = "fridgevision";
     } else if (command === "cat resume") {
       print("Opening my résumé in a new tab.");
@@ -47,6 +68,7 @@
       const link = document.createElement("a");
       link.href = "#contact";
       link.textContent = "Get in touch →";
+      link.addEventListener("click", function () { setOpen(false); });
       output.appendChild(link);
       output.scrollTop = output.scrollHeight;
     } else {
