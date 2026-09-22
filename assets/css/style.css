@@ -931,23 +931,19 @@ h3.page-title.white-text {
 /* ---- Places Travelled ---- */
 .travel-map {
   position: relative;
+  z-index: 0;
   width: 100%;
-  padding-bottom: 52%; /* responsive 16:9-ish aspect ratio */
-  height: 0;
+  height: clamp(300px, 50vw, 460px);
   overflow: hidden;
   margin: 20px 0 24px;
   border-radius: 8px;
   border: 1px solid var(--border);
 }
-
-.travel-map iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+.travel-note { font-size: 14px; margin-top: 12px !important; }
+.travel-map .leaflet-popup-content { color: #172b34; }
+.travel-map .leaflet-control-attribution a { color: #006b70; }
+button.travel-chip { cursor: pointer; font-family: inherit; }
+button.travel-chip:hover, button.travel-chip:focus-visible { background: #203943; outline: 2px solid var(--mint); }
 
 .travel-places {
   display: flex;

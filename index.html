@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
   <!-- Font Awesome Icon - CSS-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <!-- Custom Styles-->
   <link rel="stylesheet" href="/assets/css/style.css" />
   <title>Yixin (Stephanie) Zha | Software Engineer</title>
@@ -669,14 +671,11 @@
             <p>
               A few of the places I have been fortunate to visit around the world.
             </p>
-            <div class="travel-map">
-              <iframe
-                title="Map of places I have travelled"
-                src="https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sCanada!6i2"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen></iframe>
+            <p class="travel-note">Select a marker or a place below to explore. Country markers show approximate locations.</p>
+            <div class="travel-map" id="travel-map" role="region" aria-label="Map of places I have visited">
+              <p>Loading map…</p>
             </div>
+            <noscript><p>Enable JavaScript to explore the map. My visited places are listed below.</p></noscript>
             <div class="travel-places">
               <span class="travel-chip">China</span>
               <span class="travel-chip">Canada</span>
@@ -768,6 +767,9 @@
     </button>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="assets/js/travel.js"></script>
   <script src="assets/js/projects.js"></script>
   <script src="assets/js/terminal.js"></script>
 
