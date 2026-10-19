@@ -20,7 +20,7 @@ Open http://127.0.0.1:8765. Checks require Python 3 and Node.js, but the publish
 - `assets/js/site.js`: moving electrons along SVG chip traces. Native sector links work with mouse, keyboard, touch, or no JavaScript. Respects reduced motion, supports pause/play, and pauses decoration offscreen or in a hidden tab. Chip depth and gentle floating use CSS transforms; no rendering dependency.
 - `assets/js/projects.js`: project data used by the interactive terminal. Keep this in sync when editing the static project cards.
 - `assets/js/terminal.js`: existing portfolio command interface, including résumé and project shortcuts.
-- `assets/resume/Yixin_Zha_Resume.pdf`: existing résumé, unchanged.
+- `assets/resume/Yixin_Zha_Resume.pdf`: current résumé supplied by Yixin; shared by all résumé links.
 
 The site uses system fonts and local CSS/JS. The original travel map is a lazy-loaded Google Maps embed; its content depends on Google availability. No analytics or external UI libraries are loaded.
 
