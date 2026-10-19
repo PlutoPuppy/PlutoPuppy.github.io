@@ -4,6 +4,7 @@
   const output = document.getElementById("terminal-output");
   const panel = document.getElementById("terminal-panel");
   const toggle = document.getElementById("terminal-toggle");
+  toggle.hidden = false;
   const close = document.getElementById("terminal-close");
 
   function setOpen(open) {
