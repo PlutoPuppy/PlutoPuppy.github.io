@@ -1,4 +1,4 @@
-/* An original, perspective-projected toroidal lattice. No third-party renderer. */
+/* An original, perspective-projected layered computational grid. No third-party renderer. */
 (() => {
   const canvas = document.getElementById('lattice');
   const ctx = canvas.getContext('2d');
@@ -14,19 +14,18 @@
   let width = 0, height = 0;
   let pointerX = 0, pointerY = 0;
   const points = [];
-  const rings = 42, segments = 64;
-  for (let i = 0; i < rings; i++) {
-    const u = i / rings * Math.PI * 2;
-    for (let j = 0; j < segments; j++) {
-      const v = j / segments * Math.PI * 2;
-      const tube = 0.35 + 0.07 * Math.cos(u * 3);
-      points.push([(1 + tube * Math.cos(v)) * Math.cos(u), (1 + tube * Math.cos(v)) * Math.sin(u), tube * Math.sin(v)]);
+  const side = 9, layers = 3;
+  for (let layer = 0; layer < layers; layer++) {
+    for (let row = 0; row < side; row++) {
+      for (let col = 0; col < side; col++) {
+        points.push([(col - 4) * .22, (row - 4) * .22, (layer - 1) * .48]);
+      }
     }
   }
   function draw() {
     ctx.clearRect(0, 0, width, height);
-    const scale = Math.min(width / 3.6, height / 3.7);
-    const ay = angle + pointerX, ax = 0.88 + pointerY;
+    const scale = Math.min(width / 4.2, height / 4.2);
+    const ay = 0.45 + Math.sin(angle) * .12 + pointerX, ax = 0.65 + pointerY;
     const projected = points.map(([x,y,z]) => {
       const xx = x * Math.cos(ay) + z * Math.sin(ay);
       const zz = -x * Math.sin(ay) + z * Math.cos(ay);
@@ -35,17 +34,27 @@
       const perspective = 4.7 / (4.7 - depth);
       return {x:width/2 + (xx * .92 - yy * .32) * scale * perspective,y:height/2 + (xx * .32 + yy * .92) * scale * perspective,z:depth,p:perspective};
     });
-    for (let i = 0; i < rings; i++) {
-      ctx.beginPath();
-      for (let j = 0; j <= segments; j++) {
-        const p = projected[i * segments + j % segments];
-        if (!j) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y);
+    // Three connected planes suggest hardware arrays rather than a literal device.
+    ctx.strokeStyle = 'rgba(125,74,43,.22)';
+    ctx.lineWidth = .7;
+    for (let layer = 0; layer < layers; layer++) {
+      for (let row = 0; row < side; row++) {
+        for (let col = 0; col < side; col++) {
+          const index = layer * side * side + row * side + col;
+          const neighbors = [];
+          if (col < side - 1) neighbors.push(index + 1);
+          if (row < side - 1) neighbors.push(index + side);
+          if (layer < layers - 1 && row % 4 === 0 && col % 4 === 0) neighbors.push(index + side * side);
+          for (const neighbor of neighbors) {
+            ctx.beginPath();ctx.moveTo(projected[index].x, projected[index].y);
+            ctx.lineTo(projected[neighbor].x, projected[neighbor].y);ctx.stroke();
+          }
+        }
       }
-      ctx.strokeStyle = 'rgba(125,74,43,.19)'; ctx.lineWidth = .6; ctx.stroke();
     }
     projected.sort((a,b) => a.z-b.z).forEach(p => {
       ctx.fillStyle = `rgba(143,66,33,${.25+(p.z+1.5)/3*.65})`;
-      ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.45,p.p*1.2),0,Math.PI*2);ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.8,p.p*1.8),0,Math.PI*2);ctx.fill();
     });
   }
   function animate(now) {

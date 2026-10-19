@@ -17,7 +17,7 @@ Open http://127.0.0.1:8765. Checks require Python 3 and Node.js, but the publish
 
 - `index.html`: all portfolio content, project details, links and terminal markup. Content and native project disclosures work without JavaScript.
 - `assets/css/style.css`: responsive layout, typography, colors, and terminal styles.
-- `assets/js/site.js`: original perspective-projected 3D lattice, using Canvas 2D with no rendering dependency. Honors reduced motion; provides pause/play, caps pixel density, and stops rendering when offscreen or the tab is hidden. A CSS illustration remains if scripting/canvas is unavailable.
+- `assets/js/site.js`: original perspective-projected layered computational grid, using Canvas 2D with no rendering dependency. Honors reduced motion; provides pause/play, caps pixel density, and stops rendering when offscreen or the tab is hidden. A CSS illustration remains if scripting/canvas is unavailable.
 - `assets/js/projects.js`: project data used by the interactive terminal. Keep this in sync when editing the static project cards.
 - `assets/js/terminal.js`: existing portfolio command interface, including résumé and project shortcuts.
 - `assets/resume/Yixin_Zha_Resume.pdf`: existing résumé, unchanged.
