@@ -618,3 +618,50 @@ footer {
   background:repeating-linear-gradient(0deg,transparent 0 23px,#a246272b 24px 25px),repeating-linear-gradient(90deg,transparent 0 23px,#a246272b 24px 25px);
   transform:rotate(-18deg) skew(10deg);
 }
+/* Homepage: personal introduction and a navigable chip. */
+.hero { align-items:center; column-gap:28px; }
+.hero-greeting { font-size:20px; margin:30px 0 6px; color:var(--muted); }
+.hero .hero-name { font-size:clamp(42px,4.8vw,72px); line-height:1.12; font-weight:400; letter-spacing:-.045em; margin:0 0 24px; }
+.hero-name span { font-family:Georgia,serif; color:var(--accent); }
+.hero-interests { font-size:14px; line-height:1.8; color:var(--accent); margin-bottom:20px; }
+.hero-description { max-width:450px; line-height:1.8; }
+.chip-visual { min-height:520px; display:flex; align-items:center; justify-content:center; }
+.chip-stage { width:100%; perspective:1100px; padding:28px 0 55px; }
+.portfolio-chip { width:100%; display:block; overflow:visible; transform:rotateX(17deg) rotateZ(-7deg); filter:drop-shadow(12px 24px 15px #25352926); animation:chip-float 8s ease-in-out infinite; animation-play-state:paused; }
+.chip-visual[data-running="true"] .portfolio-chip { animation-play-state:running; }
+.chip-pins { stroke:#aa9776; stroke-width:10; }
+.chip-base { fill:#121d17; stroke:#101a14; stroke-width:2; }
+.chip-package { stroke:#8b9d8c; stroke-width:1.5; }
+.circuit-trace { fill:none; stroke:#bc9b6d; stroke-width:1.5; stroke-linejoin:round; opacity:.65; }
+.chip-sector rect { fill:#35453a; stroke:#849880; stroke-width:1; transition:fill .18s,stroke .18s; }
+.chip-sector text { font:15px Arial, sans-serif; fill:#f5f0df; pointer-events:none; }
+.chip-sector:hover rect,.chip-sector:focus rect { fill:#546950; stroke:#ffdc9f; stroke-width:2.5; }
+.chip-sector:focus { outline:none; }
+.sector-detail { stroke:#c8ab7e; stroke-width:2; fill:none; }
+.chip-core rect { fill:#ba8753; stroke:#e5cda1; }
+.chip-core text { fill:#18251b; font-size:22px; font-weight:600; }
+.chip-core .core-label { font-size:9px; font-weight:400; }
+.chip-etch { font:9px monospace; fill:#bdc8b9; letter-spacing:1px; }
+.electrons { display:none; pointer-events:none; fill:#ffe1a1; }
+.chip-enhanced .electrons { display:block; }
+.chip-visual .visual-caption { left:5%; right:5%; bottom:0; font-size:11px; align-items:center; }
+.chip-visual .visual-caption button { padding:10px 0; font-size:11px; min-height:44px; }
+@keyframes chip-float { 0%,100% { transform:rotateX(17deg) rotateZ(-7deg) translateY(0); } 50% { transform:rotateX(14deg) rotateZ(-5deg) translateY(-7px); } }
+@media(max-width:900px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-copy { max-width:600px; }
+  .hero-description { max-width:560px; }
+  .chip-visual { width:min(560px,100%); justify-self:center; min-height:0; margin:32px auto 0; }
+  .chip-stage { padding-bottom:45px; }
+}
+@media(max-width:560px) {
+  .hero .hero-name { font-size:clamp(37px,10vw,55px); }
+  .hero-interests { font-size:12px; }
+  .chip-visual { height:auto; min-height:0; }
+  .chip-stage { padding-top:10px; }
+  .chip-visual .visual-caption { left:0; right:0; font-size:10px; }
+  .chip-sector text { font-size:17px; }
+  .chip-core .core-label { font-size:10px; }
+  .portfolio-chip { transform:none; animation:none; }
+}
+@media(prefers-reduced-motion:reduce) { .portfolio-chip { animation:none; } .chip-sector rect { transition:none; } }
