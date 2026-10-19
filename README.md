@@ -1,61 +1,37 @@
-# Yixin Zha
-This repository is based on
-https://github.com/varadbhogayata/varadbhogayata.github.io.
+# Stephanie Zha — Portfolio
 
-# Personal Portfolio ⚡️ 
-> A clean, beautiful, responsive portfolio template for Software Developers!
+A static, responsive portfolio for Yixin (Stephanie) Zha, hosted at https://stephzha.com/.
 
-> https://PlutoPuppy.github.io
+## Preview and checks
 
+No package installation or compilation is required. From the repository root:
 
+```sh
+python3 -m http.server 8765 --bind 127.0.0.1
+python3 scripts/check.py
+```
 
-## Features 📋
-⚡️ Fully Responsive\
-⚡️ Valid HTML5 & CSS3\
-⚡️ Typing animation using `Typed.js`\
-⚡️ Easy to modify
+Open http://127.0.0.1:8765. Checks require Python 3 and Node.js, but the published site requires neither.
 
-## Installation & Deployment 📦
-- Clone the repository and modify the content of <b>index.html</b> according to your requirement.
-- Add or remove images from `varadbhogayata.github.io/assets/img/` directory as per your requirement.
-- I highly recommend to use [Github Pages](https://create-react-app.dev/docs/deployment/#github-pages) to deploy the website the EASIEST WAY.
-- To deploy your website, first you need to create github repository with name `<your-github-username>.github.io`. Please don't give any other name.
-- Push the generated code to the `master` branch of this repository.
-- <b>NOTE:</b> Make sure to set `analyticsId` from your Google Analytics account inside the Google Analytics script tag, if you want to use your own Google Analytics account.
+## Editing
 
-## Sections 📚
-✔️ About me\
-✔️ Experience\
-✔️ Projects \
-✔️ Skills \
-✔️ Education\
-✔️ Contact Info\
-✔️ Resume
+- `index.html`: all portfolio content, project details, links and terminal markup. Content and native project disclosures work without JavaScript.
+- `assets/css/style.css`: responsive layout, typography, colors, and terminal styles.
+- `assets/js/site.js`: moving electrons along SVG chip traces. Native sector links work with mouse, keyboard, touch, or no JavaScript. Respects reduced motion, supports pause/play, and pauses decoration offscreen or in a hidden tab. Chip depth and gentle floating use CSS transforms; no rendering dependency.
+- `assets/js/projects.js`: project data used by the interactive terminal. Keep this in sync when editing the static project cards.
+- `assets/js/terminal.js`: existing portfolio command interface, including résumé and project shortcuts.
+- `assets/resume/Yixin_Zha_Resume.pdf`: current résumé supplied by Yixin; shared by all résumé links.
 
-To view a live example, **[click here](https://varadbhogayata.github.io/)**
+The site uses system fonts and local CSS/JS. The original travel map is a lazy-loaded Google Maps embed; its content depends on Google availability. No analytics or external UI libraries are loaded.
 
-## Tools Used 🛠️
-* [<b>GitHub Pages</b>](https://create-react-app.dev/docs/deployment/#github-pages) - To host my static website (HTML, CSS, JS).
-* [<b>Materialize</b>](https://materializecss.com/) - A CSS framework to get Google's Material Design components.
-* [<b>Typed.js</b>](https://mattboldt.com/demos/typed-js/) - JavaScript Library
+## GitHub Pages and custom domain
 
-## Contributing 💡
-#### Step 1
+Keep the existing GitHub Pages source set to `main` / root (`/`) and custom domain `stephzha.com`. The existing `CNAME` is preserved, and `.nojekyll` allows direct static publishing. The canonical and social URLs use the existing apex domain; www redirects to that domain in the current deployment. Keep existing DNS and HTTPS settings.
 
-- **Option 1**
-    - 🍴 Fork this repo!
+Review and merge the redesign PR when ready. A branch push does not replace the production site; merging to the configured Pages source publishes the change. No deployment workflow or DNS changes are needed. If Pages is configured differently, retain that configuration and verify its source before merging.
 
-- **Option 2**
-    - 👯 Clone this repo to your local machine.
+Before release, check desktop and mobile navigation, project disclosures, motion pause/play and reduced-motion preferences, résumé, terminal commands, and travel map. Verify external destinations manually; the static checker verifies local files and anchors only.
 
+## Attribution
 
-#### Step 2
-
-- **Build your code** 🔨🔨🔨
-
-#### Step 3
-
-- 🔃 Create a new pull request.
-
-## License 📄
-This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details.
+The original portfolio was based on https://github.com/varadbhogayata/varadbhogayata.github.io. Existing assets and license are retained. The redesigned layout and animated lattice are original.
